@@ -13,14 +13,14 @@ char *argv[] = {"", NULL};
 
 if (pid == -1)
 {
-perror("fork");
+perror("./shell");
 exit(EXIT_FAILURE);
 }
 else if (pid == 0)
 {
 if (execve(command, argv, NULL) == -1)
 {
-perror("execve");
+perror("./shell");
 exit(EXIT_FAILURE);
 }
 }
