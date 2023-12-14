@@ -16,13 +16,13 @@ while (1)
 if (isatty(STDIN_FILENO))
 write(1, "#cisfun$ ", 9);
 read = getline(&line, &len, stdin);
-line[strcspn(line, "\n")] = '\0';
 if (read == -1)
 {
 if (isatty(STDIN_FILENO))
 perror("./shell");
 break;
 }
+line[read - 1] = '\0';
 executeCommand(line);
 }
 free(line);
