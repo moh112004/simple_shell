@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * main - Entry point of the program
+ * main - Entry point of the program.
  *
- * Return: returns 0 in success
+ * Return: returns 0 On success.
  */
 int main(void)
 {
@@ -13,15 +13,17 @@ ssize_t read;
 
 while (1)
 {
+if (isatty(STDIN_FILENO))
 write(1, "#cisfun$ ", 9);
 read = getline(&line, &len, stdin);
 line[strcspn(line, "\n")] = '\0';
-executeCommand(line);
 if (read == -1)
 {
+if (isatty(STDIN_FILENO))
 perror("./shell");
 break;
 }
+executeCommand(line);
 }
 free(line);
 return (0);
